@@ -4,7 +4,7 @@ This repository show how create an SSO and ACL system with the Ory stack and Kub
 
 ## prerequisites
 
-- [helm](https://helm.sh/docs/intro/install/)
+[helm](https://helm.sh/docs/intro/install/)
 
 ```bash
 helm plugin install https://github.com/databus23/helm-diff
