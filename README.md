@@ -2,7 +2,7 @@
 
 This repository show how create an SSO and ACL system with the Ory stack and Kubernetes.
 
-## prerequisites
+## Prerequisites
 
 [helm](https://helm.sh/docs/intro/install/)
 
