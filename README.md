@@ -2,12 +2,19 @@
 
 This repository show how create an SSO and ACL system with the Ory stack and Kubernetes.
 
+## prerequisites
+
+- [helm](https://helm.sh/docs/intro/install/)
+
+```bash
+helm plugin install https://github.com/databus23/helm-diff
+```
+
 ## How to run
 
 Edit [env/default.yaml](env/default.yaml):
 
 ```bash
-helm plugin install https://github.com/databus23/helm-diff
 helmfile --file helmfile.yaml --namespace ory apply --wait --wait-for-jobs
 
 # fix ingress 
