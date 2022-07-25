@@ -4,8 +4,8 @@ This repository show how create an SSO and ACL system with the Ory stack and Kub
 
 ## Prerequisites
 
-[helm](https://helm.sh/docs/intro/install/)
-[nginx](https://kubernetes.github.io/ingress-nginx/deploy/#docker-desktop)
+- [helm](https://helm.sh/docs/intro/install/)
+- [nginx](https://kubernetes.github.io/ingress-nginx/deploy/#docker-desktop)
 
 ```bash
 helm plugin install https://github.com/databus23/helm-diff
