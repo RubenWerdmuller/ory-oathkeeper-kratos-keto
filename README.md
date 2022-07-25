@@ -7,19 +7,20 @@ This repository show how create an SSO and ACL system with the Ory stack and Kub
 Edit [env/default.yaml](env/default.yaml):
 
 ```bash
-$ helmfile --file helmfile.yaml --namespace ory apply --wait --wait-for-jobs
+helm plugin install https://github.com/databus23/helm-diff
+helmfile --file helmfile.yaml --namespace ory apply --wait --wait-for-jobs
 
 # fix ingress 
-$ kubectl patch ing/keto-read --type=json --namespace ory -p='[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value":"keto-read"}]'
-$ kubectl patch ing/keto-write --type=json --namespace ory -p='[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value":"keto-write"}]'
+kubectl patch ing/keto-read --type=json --namespace ory -p='[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value":"keto-read"}]'
+kubectl patch ing/keto-write --type=json --namespace ory -p='[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value":"keto-write"}]'
 
 ### brew install httpie
-$ http PUT http://keto.example.com/write/relation-tuples namespace=access object=administration relation=access subject_id=admin
-$ http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=admin
-$ http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
+http PUT http://keto.example.com/write/relation-tuples namespace=access object=administration relation=access subject_id=admin
+http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=admin
+http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
 
 # check
-$ http -b http://keto.example.com/read/check namespace=access object=administration relation=access subject_id=admin
+http -b http://keto.example.com/read/check namespace=access object=administration relation=access subject_id=admin
 {
     "allowed": true
 }
