@@ -16,6 +16,7 @@ helm plugin install https://github.com/databus23/helm-diff
 Edit [env/default.yaml](env/default.yaml):
 
 ```bash
+# --wait en --wait-for-jobs kan soms falen, dan zonder
 helmfile --file helmfile.yaml --namespace ory apply --wait --wait-for-jobs
 
 # fix ingress 
@@ -23,6 +24,7 @@ kubectl patch ing/keto-read --type=json --namespace ory -p='[{"op": "replace", "
 kubectl patch ing/keto-write --type=json --namespace ory -p='[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value":"keto-write"}]'
 
 ### brew install httpie
+# URL dubbel checken!
 http PUT http://keto.example.com/write/relation-tuples namespace=access object=administration relation=access subject_id=admin
 http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=admin
 http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
