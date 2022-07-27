@@ -25,9 +25,9 @@ kubectl patch ing/keto-write --type=json --namespace ory -p='[{"op": "replace", 
 
 ### brew install httpie
 # URL dubbel checken!
-http PUT http://keto.example.com/write/relation-tuples namespace=access object=administration relation=access subject_id=admin
-http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=admin
-http PUT http://keto.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
+http PUT http://keto.ory.example.com/write/relation-tuples namespace=access object=administration relation=access subject_id=admin
+http PUT http://keto.ory.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=admin
+http PUT http://keto.ory.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
 
 # check
 http -b http://keto.example.com/read/check namespace=access object=administration relation=access subject_id=admin
