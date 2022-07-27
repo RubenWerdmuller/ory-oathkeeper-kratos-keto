@@ -30,7 +30,7 @@ http PUT http://keto.ory.example.com/write/relation-tuples namespace=access obje
 http PUT http://keto.ory.example.com/write/relation-tuples namespace=access object=application relation=access subject_id=user
 
 # check
-http -b http://keto.example.com/read/check namespace=access object=administration relation=access subject_id=admin
+http -b http://keto.ory.example.com/read/check namespace=access object=administration relation=access subject_id=admin
 {
     "allowed": true
 }
