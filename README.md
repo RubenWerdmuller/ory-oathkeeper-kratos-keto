@@ -16,7 +16,6 @@ helm plugin install https://github.com/databus23/helm-diff
 Edit [env/default.yaml](env/default.yaml):
 
 ```bash
-# --wait en --wait-for-jobs kan soms falen, dan zonder
 helmfile --file helmfile.yaml --namespace ory apply --wait --wait-for-jobs
 
 # fix ingress 
